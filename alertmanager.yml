@@ -1,0 +1,24 @@
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: ['alertname']
+  group_wait: 5m
+  group_interval: 30m
+  repeat_interval: 30m
+  receiver: 'hari.v@creditmantri.com'
+receivers:
+- name: 'hari.v@creditmantri.com'
+  email_configs:
+  - to: 'cmalerting@creditmantri.com'
+    from: 'curldom@creditmantri.com'
+    smarthost: email-smtp.ap-south-1.amazonaws.com:587
+    auth_username: 'AKIA6IP74RHP2KRYOW5M'
+    auth_identity: 'AKIA6IP74RHP2KRYOW5M'
+    auth_password: 'BBZyWsE6wP9AVMng59FVQWBMVJ6i7ToDie4ppC0iVpRl'
+inhibit_rules:
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'dev', 'instance']

@@ -1,0 +1,364 @@
+global:
+  scrape_interval:     1s
+  evaluation_interval: 1s
+
+rule_files:
+   - alert.rules.yml
+  # - "second.rules"
+
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - localhost:9093
+
+scrape_configs:
+  - job_name: prometheus
+    scrape_interval: 5s
+    static_configs:
+      - targets: [localhost:9090]
+
+  - job_name: node_exporter
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['172.31.48.21:9100']
+        labels:
+          name: 'BuildMyCreditScore'
+          # - targets: ['172.31.48.11:9100']
+          # labels:
+          # name: 'Pre-Login-Frontend-Private'
+          #- targets: ['172.31.48.196:9100']
+          #labels:
+          #name: 'CMOL-Dashboard-Private'
+          # - targets: ['172.31.48.72:9100']
+          # labels:
+          #name: 'Clone-ekam-private'
+          #- targets: ['172.31.48.93:9100']
+          #labels:
+          # name: 'Prelogin-API-Private'
+          #- targets: ['172.31.48.228:9100']
+          #labels:
+          # name: 'Postlogin-offer-Private'
+      - targets: ['172.31.48.41:9100']
+        labels:
+          name: 'Regen-Utility'
+          # - targets: ['172.31.48.20:9100']
+          # labels:
+          # name: 'ProdMonES - Kibana'
+      - targets: ['172.31.49.62:9100']
+        labels:
+          name: 'DSA-Agent'
+         #- targets: ['172.31.0.224:9100']
+         # labels:
+         # name: 'Pass2-CHR-CMOL-Old-DoNOTStop'
+      - targets: ['172.31.0.7:9100']
+        labels:
+          name: 'Credence-Proxy'
+          # - targets: ['172.31.48.76:9100']
+          # labels:
+          #name: 'CRM-NFlow'
+      - targets: ['172.31.48.121:9100']
+        labels:
+          name: 'CMOL-Logger-Utility'
+      - targets: ['172.31.0.227:9100']
+        labels:
+          name: 'BOBSME API - CRMAPI - SMELDB'
+      #- targets: ['172.31.0.79:9100']
+      #  labels:
+      #    name: 'BOB/Creditgateway-SME'
+      - targets: ['172.31.48.239:9100']
+        labels:
+          name: 'CRM - CMOL - API - Dhuvekam'
+          # - targets: ['172.31.48.239:9100']
+          # labels:
+          # name: 'Mongo-Docker-Prelogin'
+      - targets: ['172.31.48.167:9100']
+        labels:
+          name: 'CRM-617-1'
+      - targets: ['172.31.16.66:9100']
+        labels:
+          name: 'Gitlab'
+      - targets: ['172.31.48.91:9100']
+        labels:
+          name: 'CRM-CIS-ARS'
+          #- targets: ['172.31.48.244:9100']
+          #labels:
+          #name: 'CMOL-Dashboard'
+      - targets: ['172.31.48.142:9100']
+        labels:
+          name: 'Prod-CC-Engine'
+      - targets: ['172.31.48.118:9100']
+        labels:
+          name: 'SMS-Datastore'
+       #- targets: ['172.31.48.94:9100']
+        #labels:
+          #name: 'DSWorkbench-1a-Private'
+      - targets: ['172.31.48.9:9100']
+        labels:
+          name: 'CommonAPI'
+      - targets: ['172.31.48.20:9100']
+        labels:
+          name: 'CMOL-API-M-IP2 - ekam'
+      - targets: ['172.31.48.92:9100']
+        labels:
+          name: 'CMOL - JOBS -RL / Anekam'
+      - targets: ['172.31.48.184:9100']
+        labels:
+          name: 'CRM-617'
+      - targets: ['172.31.48.158:9100']
+        labels:
+          name: 'MLModels - CISRE - NLP'
+      - targets: ['172.31.48.124:9100']
+        labels:
+          name: 'Chatbot'
+      - targets: ['172.31.1.67:9100']
+        labels:
+          name: 'CGMongo - APIGateway'
+      - targets: ['172.31.48.236:9100']
+        labels:
+          name: 'CMOL-API-M-IP1 - ekam'
+          # - targets: ['172.31.48.174:9100']
+          # labels:
+          # name: 'Java - GSTFrontend - Useracc - Furlenco - Encryptdecrypt-Demyst - Graviton'
+       #- targets: ['172.31.48.234:9100']
+       # labels:
+        #  name: 'Go-Agent'
+      - targets: ['172.31.0.231:9100']
+        labels:
+           name: 'curldom-scrapper'
+      - targets: ['172.31.49.220:9100']
+        labels:
+          name: 'Rule-Engine'
+      - targets: ['172.31.48.252:9100']
+        labels:
+          name: 'CM-Exclusive'
+      - targets: ['172.31.48.213:9100']
+        labels:
+          name: 'CM-Cron'
+      - targets: ['172.31.48.250:9100']
+        labels:
+          name: 'CMOL-Prelogin-Frontend'
+      - targets: ['172.31.48.178:9100']
+        labels:
+          name: 'Alert-Engine - Lenderbase'
+          #- targets: ['172.31.48.178:9100']
+          #labels:
+          # name: 'Snoopy' 
+          #- targets: ['172.31.48.112:9100']
+          #labels:
+          #name: 'Postlogin-offers'
+      - targets: ['172.31.48.188:9100']
+        labels:
+          name: 'CRM-Common-API / CRM-Utility'
+          #- targets: ['172.31.48.231:9100']
+          # labels:
+          # name: 'MIS-SMTP'
+        #- targets: ['172.31.0.109:9100']
+        # labels:
+        #  name: 'Go-server'
+          # - targets: ['172.31.48.28:9100']
+          # labels:
+          # name: 'Warehouse'
+      - targets: ['172.31.0.76:9100']
+        labels:
+          name: 'API-Gateway'
+      #- targets: ['172.31.48.77:9100']
+      #  labels:
+      #    name: 'CIS-ARS-Crons'
+      - targets: ['172.31.48.180:9100']
+        labels:
+          name: 'CMOL-Prelogin-API'
+      - targets: ['172.31.48.103:9100']
+        labels:
+          name: 'CMOL-API-M-IP3 - ekam'
+      - targets: ['172.31.48.69:9100']
+        labels:
+          name: 'CRM-617-2'
+      - targets: ['172.31.48.105:9100']
+        labels:
+          name: 'Cmol-offers-CRM'
+      - targets: ['172.31.49.243:9100']
+        labels:
+          name: 'Cmol-Dashboard-CRM'    
+      - targets: ['172.31.48.33:9100']
+        labels:
+          name: 'Cmol-Dashboard'
+      #- targets: ['172.31.48.28:9100']
+      #  labels:
+      #    name: 'Warehouse-18' 
+      - targets: ['172.31.48.163:9100']
+        labels:
+          name: 'CM-Monitoring'
+      - targets: ['172.31.48.157:9100']
+        labels:
+          name: 'CMOL-API-M-IP4 - ekam'
+      - targets: ['172.31.16.232:9100']
+        labels:
+          name: 'ACL-Gateway'
+      - targets: ['172.31.0.117:9100']
+        labels:
+          name: 'API-Gateway1'
+      - targets: ['172.31.48.175:9100']
+        labels:
+          name: 'chr-service-t'
+      - targets: ['172.31.48.246:9100']
+        labels:
+          name: 'CM-Appops-DND'
+      - targets: ['172.31.48.155:9100']
+        labels:
+          name: 'Prelogin-Frontend1'
+      #- targets: ['172.31.48.27:9100']
+      #  labels:
+      #    name: 'CG - API'
+      - targets: ['172.31.49.25:9100']
+        labels:
+          name: 'CMOL-CIS-ARS-Service'
+      - targets: ['172.31.49.154:9100']
+        labels:
+          name: 'CMOL-CIS-ARS-Service1' 
+      #- targets: ['172.31.16.218:9100']
+      #  labels:
+      #    name: 'CG - LDB'
+      - targets: ['172.31.49.13:9100']
+        labels:
+          name: 'cmol-dashboard1'
+      - targets: ['172.31.49.8:9100']
+        labels:
+          name: 'CMOL-offers1'
+      - targets: ['172.31.48.52:9100']
+        labels:
+          name: 'Cmol-Prelogin-Api1'
+      - targets: ['172.31.48.115:9100']
+        labels:
+          name: 'CRM-CIS-ARS1'
+      - targets: ['172.31.48.237:9100']
+        labels:
+          name: 'CRM-Common-API'
+      - targets: ['172.31.48.136:9100']
+        labels:
+          name: 'Kurunthagaval- Kanippan'
+      - targets: ['172.31.48.110:9100']
+        labels:
+          name: 'PDF Generator - Biggie'
+      - targets: ['172.31.48.53:9100']
+        labels:
+          name: 'Rule-Engine1'  
+      - targets: ['172.31.0.70:9100']
+        labels:
+          name: 'CRM-Utility_DB'   
+      - targets: ['172.31.49.40:9100']
+        labels:
+          name: 'VerificationServices - Mobile Notification'
+      - targets: ['172.31.48.111:9100']
+        labels:
+          name: 'Datalayer' 
+      - targets: ['172.31.0.240:9100']
+        labels:
+          name: 'Bastion'
+      - targets: ['172.31.48.199:9100']
+        labels:
+          name: 'Mongo-Docker-Prelogin'
+      - targets: ['172.31.49.217:9100']
+        labels:
+          name: 'Elk_master'
+      - targets: ['172.31.48.129:9100']
+        labels:
+          name: 'CMOL-API-M-IP5 - ekam'
+      #- targets: ['172.31.48.84:9100']
+      #  labels:
+      #    name: 'webhook'
+      - targets: ['172.31.48.36:9100']
+        labels:
+          name: 'java-172.31.48.162'
+      - targets: ['172.31.48.126:9100']
+        labels:
+          name: 'java-172.31.48.126'
+      - targets: ['172.31.49.190:9100']
+        labels:
+          name: 'CRM-OPS'
+      #- targets: ['172.31.48.231:9100']
+        #labels:
+          #name: 'MIS'
+      - targets: ['172.31.49.50:9100']
+        labels:
+          name: 'vserv-Live'
+      - targets: ['172.31.0.182:9100']
+        labels:
+          name: 'kafka'
+      - targets: ['172.31.49.44:9100']
+        labels:
+          name: 'New-Warehouse'
+      - targets: ['172.31.48.222:9100']
+        labels:
+          name: 'webengage-db'
+      - targets: ['172.31.0.76:9100']
+        labels:
+          name: 'API-Gateway'
+      - targets: ['172.31.48.55:9100']
+        labels:
+          name: 'webhook1'
+      #- targets: ['172.31.48.220:9100']
+      #  labels:
+      #    name: 'webhook-dashboard2'
+      #- targets: ['172.31.48.248:9100']
+      #  labels:
+      #    name: 'cron-schedular'
+      - targets: ['172.31.49.208:9100']
+        labels:
+          name: 'google analytics'
+      #- targets: ['172.31.49.83:9100']
+      #  labels:
+      #    name: 'jenkins'
+      #- targets: ['172.31.49.32:9100']
+      #  labels:
+      #    name: 'jenkins-slave'          
+      - targets: ['172.31.48.5:9100']
+        labels:
+          name: 'Image'
+      - targets: ['172.31.48.123:9100']
+        labels:
+          name: 'CMOL-API-M-IP6'
+      - targets: ['172.31.49.114:9100']
+        labels:
+          name: 'Payzapp_DB'
+     #- targets: ['172.31.0.121:9100']
+     #   labels:
+     #     name: 'powerbi'
+      - targets: ['172.31.49.90:9100']
+        labels:
+          name: 'spark-slave'
+      - targets: ['172.31.48.109:9100']
+        labels:
+          name: 'Tech_Info'     
+      - targets: ['172.31.49.9:9100']
+        labels:
+          name: 'Android'
+      - targets: ['172.31.49.119:9100']
+        labels:
+          name: 'kafka-azure'
+      - targets: ['98.70.13.189:9100']
+        labels:
+          name: 'Rstudio-Azure'
+      - targets: ['98.70.38.25:9100']
+        labels:
+          name: 'warehouse-Azure'
+      - targets: ['172.31.49.20:9100']
+        labels:
+          name: 'CDC'
+      - targets: ['172.31.49.181:9100']
+        labels:
+          name: 'Cmol-Dashboard2'
+      - targets: ['172.31.48.186:9100']
+        labels:
+          name: 'Prelogin-Frontend2'
+      - targets: ['172.31.49.116:9100']
+        labels:
+          name: 'crm-602'
+
+
+  - job_name: WMI_exporter
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['172.31.16.131:9182']
+        labels:
+          name: 'windows_sftp'
